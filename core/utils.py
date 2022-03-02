@@ -27,7 +27,7 @@ def find_color(number: int):
                     attempts.append(f"You're right, it`s {color}. Attempts = {count}")
                     return " \n ".join(attempts), color
                 else:
-                    attempts.append(f"You're not right, it's not {color}. Attempts = {count}")
                     count += 1
+                    attempts.append(f"You're not right, it's not {color}. Attempts = {count}")
 
     return " \n ".join(attempts)
