@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 class Equation(BaseModel):
-    id: Optional[int]
+    id: Optional[int] = None
     equation: str
     a: int
     b: int

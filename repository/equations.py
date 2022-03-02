@@ -16,6 +16,7 @@ class EquationRepository(BaseRepository):
         equation = await self.database.fetch_one(query)
         if equation is None:
             return None
+        print(equation)
         return Equation.parse_obj(equation)
 
     async def solution(self, e: EqInput):
@@ -46,5 +47,3 @@ class EquationRepository(BaseRepository):
         query = equations.insert().values(**values)
         eq.id = await self.database.execute(query)
         return eq
-
-

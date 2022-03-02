@@ -14,14 +14,7 @@ async def read_equations(
         eq: EquationRepository = Depends(get_equations_repository),
         limit: int = 20,
         skip: int = 0):
-    return await eq.get_all(limit=limit, self=0)
-
-
-@router.get(f"/{id}", response_model=Equation)
-async def read_one(id: int, eq: EquationRepository = Depends(get_equations_repository)):
-    response = eq.get_by_id(id)
-    return response
-
+    return await eq.get_all(limit=limit, skip=0)
 
 @router.post("/", response_model=Equation)
 async def get_solution(e: EqInput,

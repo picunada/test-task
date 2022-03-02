@@ -14,13 +14,7 @@ async def get_all(
         colors: ColorRepository = Depends(get_colors_repository),
         limit: int = 20,
         skip: int = 0):
-    return await colors.get_all(limit=limit, self=0)
-
-
-@router.get(f"/{id}", response_model=Color)
-async def get_by_id(id: int, colors: ColorRepository = Depends(get_colors_repository)):
-    response = colors.get_by_id(id)
-    return response
+    return await colors.get_all(limit=limit, skip=0)
 
 
 @router.post("/", response_model=Color)
